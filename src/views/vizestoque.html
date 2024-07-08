@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../public/estoque.css">
+  <title>Estoque ERP</title>
+</head>
+<body>
+  <section>
+    <h1 class="title">Vizualação do Estoque</h1>
+    <div  class="navsection">
+      <p class="title">ERP Decision Solution</p>
+      <ul>
+        <li><a id="irparahome">Home</a></li>
+        <li><a id="irparaestoque">Estoque</a></li>
+      </ul>
+    </div>
+    <div class="navsectionsub">
+      <ul>
+        <li><a id="irparaVizuEstoque">Vizualizar Estoque</a></li>
+        <li><a id="irparaAdcItens">Adicionar Itens</a></li>
+        <li><a id="irparaRemItens">Remover Itens</a></li>
+        <li><a id="irparaFichaProduto">Fazer ficha de Produto</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    document.getElementById('irparahome').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparahome');});
+      
+    document.getElementById('irparaestoque').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaestoque');});
+      
+    document.getElementById('irparaVizuEstoque').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaVizuEstoque');});
+
+    document.getElementById('irparaAdcItens').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaAdcItens');});
+
+    document.getElementById('irparaRemItens').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaRemItens');});
+
+    document.getElementById('irparaFichaProduto').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaFichaProduto');});
+  </script>
+</body>
+</html>

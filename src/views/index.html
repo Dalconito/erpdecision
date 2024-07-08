@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../public/index.css">
+  <title>ERP - Decision Solution</title>
+</head>
+<body>
+  <section>
+    <div  class="navsection">
+      <p class="title">ERP Decision Solution</p>
+      <p class="title">Bem vindo novamente</p>
+      <ul>
+        <li><a id="irparaestoque">Estoque</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    document.getElementById('irparaestoque').addEventListener('click', (event) => {
+      event.preventDefault();
+      ipcRenderer.send('irparaestoque');
+    });
+  </script>
+</body>
+</html>

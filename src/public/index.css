@@ -1,0 +1,12 @@
+body{background-color: rgb(217, 223, 195); margin: 0 auto; padding: 0;}
+
+a:link{text-decoration: none;}
+a:visited{text-decoration: none;}
+a:hover{text-decoration: none; color: black; }
+
+.title{background-color:rgb(60, 66, 72);color: wheat;
+    font-size: 50px; text-align: center;}
+
+.navsection{background-color: rgb(1, 155, 1); color: wheat; }
+.navsection > ul > li{height: 60px; width: 200px; background-color:rgb(10, 194, 10);
+color: wheat; font-size: 45px; text-decoration: none;}
