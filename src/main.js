@@ -1,15 +1,17 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
-const mysql = require("mysql")
 const path = require('path');
-const sequelize = require("sequelize")
+const connection = require("./database/database.js")
 const homeController = require('./controllers/homeController.js');
 const estoqueController = require('./controllers/estoqueController.js');
 const estoqueVizuController = require('./controllers/estoqueVizuController.js');
 
 let homeWindow, estoqueWindow, estoqueVizuEstoqueWindow;
 
-const conn = mysql.createConnection({host: "localhost", user:"root", password:"juntoodeoxum135"})
-console.log("Conectou")
+connection.authenticate().then(()=>{
+  console.log("Conectou com a base de dados")
+}).catch((msgErr)=>{
+  console.log(msgErr)
+})
 
 function createMainWindow() {
   homeWindow = new BrowserWindow({width: 800, height: 600,
