@@ -12,7 +12,8 @@
       <p class="title">ERP Decision Solution</p>
       <p class="title">Bem vindo novamente</p>
       <ul>
-        <li><a id="irparaestoque">Estoque</a></li>
+        <li><a id="irparaModulos">Módulos</a></li>
+        <li><a id="irparaEstoque">Estoque</a></li>
       </ul>
     </div>
   </section>
@@ -20,9 +21,9 @@
   <script>
     const { ipcRenderer } = require('electron');
 
-    document.getElementById('irparaestoque').addEventListener('click', (event) => {
+    document.getElementById('irparaEstoque').addEventListener('click', (event) => {
       event.preventDefault();
-      ipcRenderer.send('irparaestoque');
+      ipcRenderer.send('irparaEstoque');
     });
   </script>
 </body>

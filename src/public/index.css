@@ -9,4 +9,4 @@ a:hover{text-decoration: none; color: black; }
 
 .navsection{background-color: rgb(1, 155, 1); color: wheat; }
 .navsection > ul > li{height: 60px; width: 200px; background-color:rgb(10, 194, 10);
-color: wheat; font-size: 45px; text-decoration: none;}
+color: wheat; font-size: 45px; text-decoration: none; list-style: none;}

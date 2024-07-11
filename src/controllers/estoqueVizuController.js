@@ -9,11 +9,10 @@ function hideAll()
 function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow)
 {   
     ipcMain.on('irparahome',            ()=>{ hideAll(); mainWindow.show();})
-    ipcMain.on('irparaestoque',         ()=>{ hideAll(); estoqueWindow.show();})
-    ipcMain.on('irparaVizuEstoque',     ()=>{ hideAll(); estoqueVizuEstoqueWindow.show()})
+    ipcMain.on('irparaEstoque',         ()=>{ hideAll(); estoqueWindow.show();})
     ipcMain.on('irparaAdcItens',        ()=>{ hideAll(); mainWindow.show()})
     ipcMain.on('irparaRemItens',        ()=>{ hideAll(); mainWindow.show()})
     ipcMain.on('irparaFichaProduto',    ()=>{ hideAll(); mainWindow.show()})       
 }
 
-module.exports={initialize};
+module.exports={initialize, hideAll};

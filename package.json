@@ -12,7 +12,9 @@
   "author": "Dalconito",
   "license": "ISC",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "mysql2": "^3.10.2",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",

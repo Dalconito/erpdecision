@@ -8,6 +8,6 @@ function hideAll()
 }
 
 function initialize(mainWindow, estoqueWindow)
-{ ipcMain.on('irparaestoque', ()=>{hideAll(); estoqueWindow.show() })}
+{ ipcMain.on('irparaEstoque', ()=>{hideAll(); estoqueWindow.show() })}
 
 module.exports={initialize};
