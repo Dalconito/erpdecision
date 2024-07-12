@@ -7,7 +7,7 @@ function hideAll()
     janelas.forEach(janela => {janela.hide()})
 }
 
-function initialize(mainWindow, estoqueWindow)
+function initialize(estoqueWindow)
 { ipcMain.on('irparaEstoque', ()=>{hideAll(); estoqueWindow.show() })}
 
 module.exports={initialize};

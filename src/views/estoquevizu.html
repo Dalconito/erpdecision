@@ -8,11 +8,12 @@
 </head>
 <body>
   <section>
-    <h1 class="title">Vizualação do Estoque</h1>
+    <h1 class="title">Vizualização do Estoque</h1>
     <div  class="navsection">
       <p class="title">ERP Decision Solution</p>
       <ul>
         <li><a id="irparahome">Home</a></li>
+        <li><a id="irparaEstoque">Estoque</a></li>
       </ul>
     </div>
     <div class="navsectionsub">
@@ -30,12 +31,9 @@
     document.getElementById('irparahome').addEventListener('click', (event) => {
       event.preventDefault(); ipcRenderer.send('irparahome');});
       
-    document.getElementById('irparaestoque').addEventListener('click', (event) => {
-      event.preventDefault(); ipcRenderer.send('irparaestoque');});
+    document.getElementById('irparaEstoque').addEventListener('click', (event) => {
+      event.preventDefault(); ipcRenderer.send('irparaEstoque');});
       
-    document.getElementById('irparaVizuEstoque').addEventListener('click', (event) => {
-      event.preventDefault(); ipcRenderer.send('irparaVizuEstoque');});
-
     document.getElementById('irparaAdcItens').addEventListener('click', (event) => {
       event.preventDefault(); ipcRenderer.send('irparaAdcItens');});
 
