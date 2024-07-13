@@ -6,12 +6,7 @@ const estoqueController = require('./controllers/estoqueController.js');
 const estoqueVizuController = require('./controllers/estoqueVizuController.js');
 const estoqueAdcProdController = require('./controllers/estoqueAdcProdController.js')
 
-let homeWindow, estoqueWindow, estoqueVizuEstoqueWindow, adicionarProdutoWindow;
-
-
-connection.authenticate().then(()=>{
-  console.log("Conectou com a base de dados")}).catch((msgErr)=>{console.log(msgErr)})
-
+let homeWindow, estoqueWindow, estoqueVizuEstoqueWindow, adicionarProdutoWindow, formData;
 
 function createMainWindow() {
   homeWindow = new BrowserWindow({width: 800, height: 600,

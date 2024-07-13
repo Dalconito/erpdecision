@@ -27,16 +27,16 @@
   <section>
     <form id="formProduto">
         <label for="cod">Código</label>
-        <input type="text" name="" id="codProduto">
+        <input type="text" name="codProduto" id="codProduto">
         <br>
         <label for="nome">Nome</label>
-        <input type="text" name="" id="nomeProduto">
+        <input type="text" name="nomeProduto" id="nomeProduto">
         <br>
         <label for="desc">Descrição</label>
-        <input type="text" name="" id="descProduto">
+        <input type="text" name="descProduto" id="descProduto">
         <br>
         <label for="qtde">Quantidade</label>
-        <input type="text" name="" id="qtdeProduto">
+        <input type="text" name="qtdeProduto" id="qtdeProduto">
 
         <button type="submit">Enviar</button>
     </form>
@@ -58,13 +58,23 @@
     document.getElementById('irparaFichaProduto').addEventListener('click', (event) => {
       event.preventDefault(); ipcRenderer.send('irparaFichaProduto');});
 
-    document.getElementById('formProduto').addEventListener('submit', (event) => {
-      event.preventDefault();
-      const qtdeProduto = document.getElementById('codProduto').value;
+      document.getElementById('formProduto').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previne o comportamento padrão do formulário
 
-      ipcRenderer.send('codProduto', qtdeProduto);
-    
+    // Cria um objeto FormData a partir do formulário
+    const formData = new FormData(event.target);
+
+    // Converte o FormData em um objeto JavaScript
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
     });
+
+    console.log('Form Data:', data);
+
+    ipcRenderer.send('dadosProduto', data);
+    
+});
 
   </script>
 </body>
