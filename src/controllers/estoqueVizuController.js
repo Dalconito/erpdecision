@@ -10,5 +10,5 @@ function initialize(mainWindow, adicionarProdutoWindow)
     ipcMain.on('irparaAdcItens',        ()=>{ hideAll(); adicionarProdutoWindow.show()})
     ipcMain.on('irparaRemItens',        ()=>{ hideAll(); mainWindow.show()})
     ipcMain.on('irparaFichaProduto',    ()=>{ hideAll(); mainWindow.show()})}
-
+    ipcMain.on('vizualizarEst'),        ()=>{(event, form)}
 module.exports={initialize};

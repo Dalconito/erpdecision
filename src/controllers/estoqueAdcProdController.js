@@ -19,28 +19,28 @@ function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow)
 
 
 connection.authenticate().then(()=>{
-    console.log("Conectou com a base de dados")}).catch((msgErr)=>{console.log(msgErr)})
+    console.log("Conectou-se com a base de dados")}).catch((msgErr)=>{console.log(msgErr)})
   
     async function processaradcDados(formData){
-        formDataglobal = formData
-        console.log("retornou os dados: " + JSON.stringify(formData, null, 2))
-    
+
         const schema = Yup.object().shape({
-            cod: Yup.string().required, nome: Yup.string().required,
-            desc: Yup.string().required, qtde: Yup.string().required,
+            codProduto: Yup.string().required, nomeProduto: Yup.string().required,
+            descProduto: Yup.string().required, qtdeProduto: Yup.string().required,
         })
-        
-        try {await schema.isValid(formData); console.log("pegou os dados: " + formData)}
+
+        try {await schema.isValid(JSON.stringify(formData, null, 2)); console.log("Dados Validados")}
         catch (error) {console.log("Schema Invalido, ou outra coisa errada")}
 
-        const{codProduto, nomeProduto, descProduto, qtdeProduto} = formDataglobal
-        const produtoExiste = await createProdModel.findOne({where: {codProduto}})
+        const{codProduto, nomeProduto, descProduto, qtdeProduto} = formData
+        let result;
+        try {result = await createProdModel.findOne({where: { codProduto }});
+            console.log('Consulta bem-sucedida: ');}
+        catch (error) {console.error('Erro na consulta:', error);}
 
-        if (produtoExiste){console.log("CODIGO EXISTENTE")}
-        else createProdModel.create({
-            cod:codProduto, nome:nomeProduto, desc:descProduto, qtde:qtdeProduto})
-
-            return console.log("criado, verificar tabela")
+        if (result){console.log("Codigo Existente")}
+        else {createProdModel.create({
+            codProduto:codProduto, nomeProduto:nomeProduto, descProduto:descProduto, qtdeProduto:qtdeProduto})
+            return console.log("Produto Criado, verificar tabela")}
 
 }
 

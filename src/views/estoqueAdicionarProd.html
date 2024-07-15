@@ -61,18 +61,11 @@
       document.getElementById('formProduto').addEventListener('submit', function(event) {
     event.preventDefault(); // Previne o comportamento padrão do formulário
 
-    // Cria um objeto FormData a partir do formulário
     const formData = new FormData(event.target);
 
-    // Converte o FormData em um objeto JavaScript
-    const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    const produtoObj = Object.fromEntries(formData.entries());
 
-    console.log('Form Data:', data);
-
-    ipcRenderer.send('dadosProduto', data);
+    ipcRenderer.send('dadosProduto', produtoObj);
     
 });
 
