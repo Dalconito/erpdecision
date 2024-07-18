@@ -8,15 +8,13 @@ function hideAll()
 {   const janelas = BrowserWindow.getAllWindows()
     janelas.forEach(janela => {janela.hide()})}
 
-function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow)
+function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow, estoqueRemProdWindow)
 {   ipcMain.on('irparahome',            ()=>{ hideAll(); mainWindow.show();})
     ipcMain.on('irparaestoque',         ()=>{ hideAll(); estoqueWindow.show();})
     ipcMain.on('irparaVizuEstoque',     ()=>{ hideAll(); estoqueVizuEstoqueWindow.show();})
-    ipcMain.on('irparaRemItens',        ()=>{ hideAll(); mainWindow.show();})
+    ipcMain.on('irparaRemItens',        ()=>{ hideAll(); estoqueRemProdWindow.show();})
     ipcMain.on('irparaFichaProduto',    ()=>{ hideAll(); mainWindow.show();})
-    ipcMain.on('dadosProduto', (event, formData)=>{processaradcDados(formData)})
-}
-
+    ipcMain.on('dadosProduto', (event, formData)=>{processaradcDados(formData)})}
 
 connection.authenticate().then(()=>{
     console.log("Conectou-se com a base de dados")}).catch((msgErr)=>{console.log(msgErr)})
@@ -40,8 +38,6 @@ connection.authenticate().then(()=>{
         if (result){console.log("Codigo Existente")}
         else {createProdModel.create({
             codProduto:codProduto, nomeProduto:nomeProduto, descProduto:descProduto, qtdeProduto:qtdeProduto})
-            return console.log("Produto Criado, verificar tabela")}
-
-}
+            return console.log("Produto Criado, verificar tabela")}}
 
 module.exports={initialize};

@@ -5,7 +5,7 @@ function hideAll()
     const janelas = BrowserWindow.getAllWindows()
     janelas.forEach(janela => {janela.hide()})
 }
-function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow, adicionarProdutoWindow)
+function initialize(mainWindow, estoqueWindow, estoqueVizuEstoqueWindow, adicionarProdutoWindow, )
 {
     ipcMain.on('irparahome',            ()=>{ hideAll(); mainWindow.show();})
     ipcMain.on('irparaestoque',         ()=>{ hideAll(); estoqueWindow.show();})
